@@ -1,6 +1,9 @@
+# app/controllers/api/v1/auth_controller.rb
 module Api
   module V1
     class AuthController < ApplicationController
+      skip_before_action :authenticate_request!, only: %i[login register]  # Пропускай проверката на токен за тези действия
+
       def register
         user = User.new(user_params)
         if user.save
@@ -26,9 +29,8 @@ module Api
       end
 
       def encode_token(payload)
-        JWT.encode(payload, Rails.application.secrets.secret_key_base, 'HS256')
+        JWT.encode(payload, Rails.application.secret_key_base, 'HS256')
       end
-
     end
   end
 end
