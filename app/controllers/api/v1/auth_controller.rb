@@ -1,8 +1,7 @@
-# app/controllers/api/v1/auth_controller.rb
 module Api
   module V1
     class AuthController < ApplicationController
-      skip_before_action :authenticate_request!, only: %i[login register]  # Пропускай проверката на токен за тези действия
+      skip_before_action :authenticate_request!, only: %i[login register]
 
       def register
         user = User.new(user_params)
@@ -15,7 +14,7 @@ module Api
 
       def login
         user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
+        if user&.authenticate(params[:password])
           render json: { token: encode_token(user_id: user.id) }, status: :ok
         else
           render json: { errors: ['Invalid email or password'] }, status: :unauthorized
