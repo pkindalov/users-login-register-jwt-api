@@ -11,6 +11,15 @@ module Api
         end
       end
 
+      def destroy
+        if @current_user.destroy
+          render json: { message: 'Profile deleted successfully' }, status: :ok
+        else
+          render json: { errors: @current_user.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+
+
       private
 
       def user_params
