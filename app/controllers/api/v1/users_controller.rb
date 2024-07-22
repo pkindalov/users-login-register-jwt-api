@@ -20,6 +20,7 @@ module Api
 
       def destroy
         if @current_user.destroy
+          @current_user.avatar.purge if @current_user.avatar.attached?
           render json: { message: 'Profile deleted successfully' }, status: :ok
         else
           render json: { errors: @current_user.errors.full_messages }, status: :unprocessable_entity
