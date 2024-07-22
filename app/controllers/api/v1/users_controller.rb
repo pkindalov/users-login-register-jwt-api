@@ -27,6 +27,15 @@ module Api
         end
       end
 
+      def destroy_avatar
+        if @current_user.avatar.attached?
+          @current_user.avatar.purge
+          render json: { message: 'Avatar deleted successfully' }, status: :ok
+        else
+          render json: { errors: ['No avatar to delete'] }, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def user_params
