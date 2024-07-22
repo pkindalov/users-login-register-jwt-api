@@ -36,6 +36,11 @@ module Api
         end
       end
 
+      def list
+        users = User.all
+        render json: { users: users }, status: :ok
+      end
+
       private
 
       def user_params

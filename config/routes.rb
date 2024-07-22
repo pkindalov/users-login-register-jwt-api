@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       put 'profile', to: 'users#update'
       delete 'profile', to: 'users#destroy'
       delete 'profile/avatar', to: 'users#destroy_avatar'
+      get "users/list", to: 'users#list'
     end
   end
 end
