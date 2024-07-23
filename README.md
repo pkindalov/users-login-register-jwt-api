@@ -13,9 +13,17 @@ The "Users Login Register JWT API" project provides an API for user registration
         "password": "123456"
     }}`
 
+    ```sh
+    curl "http://localhost:3000/api/v1/register" --header "Content-Type: application/json" --data-raw "{\"user\": {\"email\": \"test.email@sub.domain.com\", \"password\": \"123456\"}}"
+    ```
+
 - `POST /api/v1/login`
   - Logs in an existing user.
   - Request body: `{ "email": "user@example.com", "password": "password123" }`
+
+ ```sh
+curl "http://localhost:3000/api/v1/login" --header "Content-Type: application/json" --data-raw "{\"email\": \"test@abv.bg\", \"password\": \"123456\"}"
+```
 
 ### Profile Management
 
