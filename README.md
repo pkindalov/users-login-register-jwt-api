@@ -49,9 +49,9 @@ The "Users Login Register JWT API" project provides an API for user registration
 - `DELETE /api/v1/profile/avatar`
   - Deletes the user's avatar.
  
-  Exampe:
+  Example: /Don't forget to put your token here. You can get such from the successful login response/
   ```sh
-    curl --request DELETE "http://localhost:3000/api/v1/profile/avatar" --header "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.mHvjK_w0SztGLmUAqk4hst8Ur9LbkaKxQlJIaKntcxE"
+    curl --request DELETE "http://localhost:3000/api/v1/profile/avatar" --header "Authorization: Bearer YOUR_TOKEN"
   ```
 
 ### User List
@@ -59,9 +59,31 @@ The "Users Login Register JWT API" project provides an API for user registration
 - `GET /api/v1/users/list`
   - Returns a list of all users.
 
+    Example: /Don't forget to put your token here. You can get such from the successful login response/
+    ```sh
+      curl "http://localhost:3000/api/v1/users/list" --header "Authorization: Bearer YOUR_TOKEN"
+    ```
+
 ## Installation
 
 1. Clone the repository:
    ```sh
    git clone https://github.com/<username>/users-login-register-jwt-api.git
    cd users-login-register-jwt-api
+
+2. Install dependencies:
+   ```sh
+     bundle install
+   ```
+
+3. Create and migrate the database:
+  ```sh
+    rails db:create
+    rails db:migrate
+  ```
+
+4. Start the server:
+   ```sh
+     rails server
+    ```
+
