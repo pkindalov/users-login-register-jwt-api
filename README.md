@@ -1,24 +1,39 @@
-# README
+# Users Login Register JWT API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The "Users Login Register JWT API" project provides an API for user registration, login, and profile management using JWT for authentication.
 
-Things you may want to cover:
+## Endpoints
 
-* Ruby version
+### User Registration and Login
 
-* System dependencies
+- `POST /register`
+  - Registers a new user.
+  - Request body: `{ "email": "user@example.com", "password": "password123" }`
 
-* Configuration
+- `POST /login`
+  - Logs in an existing user.
+  - Request body: `{ "email": "user@example.com", "password": "password123" }`
 
-* Database creation
+### Profile Management
 
-* Database initialization
+- `PUT /profile`
+  - Updates the user profile.
+  - Request body: `{ "email": "newemail@example.com", "password": "newpassword123" }`
 
-* How to run the test suite
+- `DELETE /profile`
+  - Deletes the user profile.
 
-* Services (job queues, cache servers, search engines, etc.)
+- `DELETE /profile/avatar`
+  - Deletes the user's avatar.
 
-* Deployment instructions
+### User List
 
-* ...
+- `GET /users/list`
+  - Returns a list of all users.
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/<username>/users-login-register-jwt-api.git
+   cd users-login-register-jwt-api
