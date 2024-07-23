@@ -6,29 +6,32 @@ The "Users Login Register JWT API" project provides an API for user registration
 
 ### User Registration and Login
 
-- `POST /register`
+- `POST /api/v1/register`
   - Registers a new user.
-  - Request body: `{ "email": "user@example.com", "password": "password123" }`
+  - Request body: ` {"user": {
+        "email": "test.email@sub.domain.com",
+        "password": "123456"
+    }}`
 
-- `POST /login`
+- `POST /api/v1/login`
   - Logs in an existing user.
   - Request body: `{ "email": "user@example.com", "password": "password123" }`
 
 ### Profile Management
 
-- `PUT /profile`
+- `PUT /api/v1/profile`
   - Updates the user profile.
   - Request body: `{ "email": "newemail@example.com", "password": "newpassword123" }`
 
-- `DELETE /profile`
+- `DELETE /api/v1/profile`
   - Deletes the user profile.
 
-- `DELETE /profile/avatar`
+- `DELETE /api/v1/profile/avatar`
   - Deletes the user's avatar.
 
 ### User List
 
-- `GET /users/list`
+- `GET /api/v1/users/list`
   - Returns a list of all users.
 
 ## Installation
